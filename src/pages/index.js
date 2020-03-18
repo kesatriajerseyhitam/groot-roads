@@ -1,7 +1,9 @@
 import React from "react"
 
+import About from "../components/_home/about"
 import Banner from '../components/banner'
 import Layout from "../components/layout"
+import Service from "../components/_home/service"
 import SimpleHero from "../components/simple-hero"
 import { Link } from "gatsby"
 
@@ -20,6 +22,8 @@ const Index = () => (
         </Link>
       </Banner>
     </SimpleHero>
+    <About />
+    <Service />
   </Layout>
 )
 
