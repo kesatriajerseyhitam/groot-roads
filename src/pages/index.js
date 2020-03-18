@@ -12,7 +12,7 @@ const Index = () => (
         title="continue exploring"
         info="Lorem ipsum dolor sir amet soncstur adi[icisini elit."
       >
-        <Link 
+        <Link
           className="btn-white"
           to="/tours"
         >
