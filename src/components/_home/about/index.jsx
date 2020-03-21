@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image'
+import Img from 'gatsby-image';
 
-import Title from '../../title'
-import styles from './styles.module.css'
+import Title from '../../title';
+import styles from './styles.module.css';
 
 const {
   about,
@@ -12,7 +12,7 @@ const {
   aboutInfo,
   aboutImg,
   imgContainer,
-} = styles
+} = styles;
 
 const getAboutImage = graphql`
   query aboutImage {
@@ -24,25 +24,25 @@ const getAboutImage = graphql`
       }
     }
   }
-`
+`;
 
 const About = () => {
   const { aboutImage } = useStaticQuery(getAboutImage);
 
   return (
-    <section className={ about }>
+    <section className={about}>
       <Title
         title="About"
         subtitle="us"
       />
 
-      <div className={ aboutCenter }>
-        <article className={ aboutImg }>
-          <div className={ imgContainer }>
-            <Img fluid={ aboutImage.childImageSharp.fluid } alt="Awesome Landscape"/>
+      <div className={aboutCenter}>
+        <article className={aboutImg}>
+          <div className={imgContainer}>
+            <Img fluid={aboutImage.childImageSharp.fluid} alt="Awesome Landscape" />
           </div>
         </article>
-        <article className={ aboutInfo }>
+        <article className={aboutInfo}>
           <h4>Explore the difference</h4>
           <p>
             Lorem ipsum, dolor sir amet consectetur adipisicing
@@ -58,7 +58,7 @@ const About = () => {
         </article>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;
