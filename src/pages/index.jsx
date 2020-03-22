@@ -1,9 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
-import {
-  Link,
-  graphql,
-} from 'gatsby';
+import { graphql } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PropTypes from 'prop-types';
 
 import About from '../components/_home/about';
@@ -34,12 +32,13 @@ const Index = ({ data }) => (
         title="continue exploring"
         info="Lorem ipsum dolor sir amet soncstur adi[icisini elit."
       >
-        <Link
+        <AniLink
           className="btn-white"
+          fade
           to="/tours"
         >
           Explore Tours
-        </Link>
+        </AniLink>
       </Banner>
     </StyledHero>
     <About />

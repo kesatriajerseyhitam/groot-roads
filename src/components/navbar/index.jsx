@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Link } from 'gatsby'
-import { FaAlignRight } from 'react-icons/fa'
+import { FaAlignRight } from 'react-icons/fa';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
-import links from '../../constants/links'
-import socials from '../../constants/social-icons'
-import styles from './styles.module.css'
-import logo from '../../images/logo.svg'
+
+import links from '../../constants/links';
+import socials from '../../constants/social-icons';
+import styles from './styles.module.css';
+import logo from '../../images/logo.svg';
 
 const Navbar = () => {
-  const [navToogled, setNavToogled] = useState(false)
+  const [navToogled, setNavToogled] = useState(false);
 
   const {
     logoBtn,
@@ -22,36 +23,39 @@ const Navbar = () => {
     showNav,
   } = styles;
 
-  const toogleNav = () => setNavToogled(toogle => !toogle)
+  const toogleNav = () => setNavToogled((toogle) => !toogle);
 
   return (
     <nav className={navbar}>
       <div className={navCenter}>
         <div className={navHeader}>
-          <img src={logo} alt="Longroads logo"/>
+          <img src={logo} alt="Longroads logo" />
           <button
             className={logoBtn}
             onClick={() => toogleNav()}
             type="button"
           >
-            <FaAlignRight className={logoIcon}/>
+            <FaAlignRight className={logoIcon} />
           </button>
         </div>
         <ul className={navToogled ? `${navLinks}${showNav}` : `${navLinks}`}>
           {
-            links.map((item, index) => {
-              return (
-                <li key={index}>
-                  <Link to={item.path}>{item.text}</Link>
-                </li>
-              )
-            })
+            links.map((item, index) => (
+              <li key={index}>
+                <AniLink
+                  fade
+                  to={item.path}
+                >
+                  {item.text}
+                </AniLink>
+              </li>
+            ))
           }
         </ul>
         <div className={navSocialLinks}>
           {
-            socials.map((item, index) => {
-              return <a
+            socials.map((item, index) => (
+              <a
                 href={item.url}
                 key={index}
                 rel="noopener noreferrer"
@@ -59,12 +63,12 @@ const Navbar = () => {
               >
                 {item.icon}
               </a>
-            })
+            ))
           }
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

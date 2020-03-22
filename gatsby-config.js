@@ -10,6 +10,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-transition-link',
     'gatsby-transformer-sharp',
     'gatsby-transformer-sharp',
     {

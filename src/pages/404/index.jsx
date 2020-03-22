@@ -1,10 +1,9 @@
-import React from "react"
+import React from 'react';
 
-import Banner from '../../components/banner'
-import Layout from '../../components/layout'
-import styles from './styles.module.css'
-
-import { Link } from "gatsby"
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import Banner from '../../components/banner';
+import Layout from '../../components/layout';
+import styles from './styles.module.css';
 
 const { error } = styles;
 
@@ -14,12 +13,12 @@ const NotFoundPage = () => (
       <Banner
         title="Oops it's a dead end"
       >
-        <Link to="/" className="btn-white">
+        <AniLink fade to="/" className="btn-white">
           Back to Homepage
-        </Link>
+        </AniLink>
       </Banner>
     </header>
   </Layout>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;
