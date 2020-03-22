@@ -4,6 +4,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
+import ContactForm from '../../components/_contact/contact';
 import Layout from '../../components/layout';
 import StyledHero from '../../components/styled-hero';
 
@@ -21,9 +22,8 @@ export const query = graphql`
 
 const Contact = ({ data }) => (
   <Layout>
-    <StyledHero
-      img={data.connectBcg.childImageSharp.fluid}
-    />
+    <StyledHero img={data.connectBcg.childImageSharp.fluid} />
+    <ContactForm />
   </Layout>
 );
 

@@ -1,0 +1,35 @@
+.contact {
+  padding: 4rem 0;
+}
+.center {
+  width: 80vw;
+  margin: 0 auto;
+}
+@media screen and (min-width: 992px) {
+  .center {
+    width: 50vw;
+    margin: 0 auto;
+  }
+}
+.formControl,
+.submit {
+  border-radius: 0.25rem;
+  border: 1px solid var(--darkGrey);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
+  width: 100%;
+}
+.submit {
+  background-color: var(--primaryColor);
+  border-color: var(--primaryColor);
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: var(--mainTransition);
+}
+.submit:hover {
+  background: var(--darkGrey);
+  color: var(--mainWhite);
+  border-color: var(--darkGrey);
+}
