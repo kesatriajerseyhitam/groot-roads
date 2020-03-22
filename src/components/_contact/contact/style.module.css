@@ -2,14 +2,19 @@
   padding: 4rem 0;
 }
 .center {
-  width: 80vw;
   margin: 0 auto;
+  width: 80vw;
 }
 @media screen and (min-width: 992px) {
   .center {
-    width: 50vw;
     margin: 0 auto;
+    width: 50vw;
   }
+}
+.contact label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
 }
 .formControl,
 .submit {
@@ -30,6 +35,6 @@
 }
 .submit:hover {
   background: var(--darkGrey);
-  color: var(--mainWhite);
   border-color: var(--darkGrey);
+  color: var(--mainWhite);
 }

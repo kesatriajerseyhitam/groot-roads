@@ -18,7 +18,11 @@ const Contact = () => (
       subtitle="us"
     />
     <div className={center}>
-      <form className={form}>
+      <form
+        action="https://formspree.io/auliya.rp@smooets.com"
+        className={form}
+        method="POST"
+      >
         <div>
           <input
             className={formControl}
@@ -48,7 +52,7 @@ const Contact = () => (
         </div>
         <div>
           <input
-            className={ submit }
+            className={submit}
             type="submit"
             value="submit here"
           />
