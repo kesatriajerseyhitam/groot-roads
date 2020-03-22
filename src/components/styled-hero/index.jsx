@@ -1,3 +1,5 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 
 import BackgroundImage from 'gatsby-background-image';
@@ -21,19 +23,19 @@ const StyledHero = ({
 );
 
 StyledHero.propTypes = {
-  children: PropTypes.isRequired,
-  className: PropTypes.isRequired,
-  home: PropTypes.isRequired,
-  img: PropTypes.isRequired,
+  children: PropTypes.element.isRequired,
+  className: PropTypes.string,
+  home: PropTypes.string,
+  img: PropTypes.object.isRequired,
 };
 
 export default styled(StyledHero)`
   align-items: center;
-  background: ${(props) => (props.hpme ? 'linear-gradient(rgba(63, 208, 212, 0.7), rgba(0, 0, 0, 0.7))' : 'none')};
+  background: ${(props) => (props.home ? 'linear-gradient(rgba(63, 208, 212, 0.7), rgba(0, 0, 0, 0.7))' : 'none')};
   background-position: center;
   background-size: cover;
   display: flex;
-  min-height: ${(props) => (props.hpme ? 'calc(100vh - 62px)' : '50vh')};
+  min-height: ${(props) => (props.home ? 'calc(100vh - 62px)' : '50vh')};
   justify-content: center;
   opacity: 1 !important;
 `;

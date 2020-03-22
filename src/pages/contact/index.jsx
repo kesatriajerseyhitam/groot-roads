@@ -1,12 +1,34 @@
-import React from 'react'
-import Layout from '../../components/layout'
+/* eslint-disable react/forbid-prop-types */
+import React from 'react';
 
-const Contact = () => {
-  return (
-    <Layout>
-      Hello from contact page!!
-    </Layout>
-  )
-}
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
-export default Contact
+import Layout from '../../components/layout';
+import StyledHero from '../../components/styled-hero';
+
+export const query = graphql`
+  query {
+    connectBcg: file(relativePath:{eq: "connectBcg.jpeg"}) {
+      childImageSharp {
+        fluid(quality: 90, maxWidth: 4160) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`;
+
+const Contact = ({ data }) => (
+  <Layout>
+    <StyledHero
+      img={data.connectBcg.childImageSharp.fluid}
+    />
+  </Layout>
+);
+
+Contact.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export default Contact;

@@ -1,15 +1,35 @@
-import React from "react"
+/* eslint-disable react/forbid-prop-types */
+import React from 'react';
+import {
+  Link,
+  graphql,
+} from 'gatsby';
+import PropTypes from 'prop-types';
 
-import About from "../components/_home/about"
-import Banner from '../components/banner'
-import Layout from "../components/layout"
-import Service from "../components/_home/service"
-import SimpleHero from "../components/simple-hero"
-import { Link } from "gatsby"
+import About from '../components/_home/about';
+import Banner from '../components/banner';
+import Layout from '../components/layout';
+import Service from '../components/_home/service';
+import StyledHero from '../components/styled-hero';
 
-const Index = () => (
+export const query = graphql`
+  query {
+    defaultBcg: file(relativePath:{eq: "defaultBcg.jpeg"}) {
+      childImageSharp {
+        fluid(quality: 90, maxWidth: 4160) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`;
+
+const Index = ({ data }) => (
   <Layout>
-    <SimpleHero>
+    <StyledHero
+      home="true"
+      img={data.defaultBcg.childImageSharp.fluid}
+    >
       <Banner
         title="continue exploring"
         info="Lorem ipsum dolor sir amet soncstur adi[icisini elit."
@@ -21,10 +41,14 @@ const Index = () => (
           Explore Tours
         </Link>
       </Banner>
-    </SimpleHero>
+    </StyledHero>
     <About />
     <Service />
   </Layout>
-)
+);
 
-export default Index
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export default Index;
