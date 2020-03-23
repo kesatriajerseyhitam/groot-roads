@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Layout from '../../components/layout';
 import StyledHero from '../../components/styled-hero';
+import TheTours from '../../components/_tours/tours';
 
 export const query = graphql`
   query {
@@ -18,33 +19,12 @@ export const query = graphql`
   }
 `;
 
-// export const tours = graphql`
-//   query {
-//     tours: allContentfulTour {
-//       edges {
-//         node {
-//           contentful_id
-//           country
-//           days
-//           images {
-//             fluid {
-//               src
-//             }
-//           }
-//           name
-//           price
-//           slug
-//         }
-//       }
-//     }
-//   }
-// `;
-
 const Tours = ({ data }) => (
   <Layout>
     <StyledHero
       img={data.connectBcg.childImageSharp.fluid}
     />
+    <TheTours />
   </Layout>
 );
 

@@ -23,7 +23,7 @@ const StyledHero = ({
 );
 
 StyledHero.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
   className: PropTypes.string,
   home: PropTypes.string,
   img: PropTypes.object.isRequired,
