@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import About from '../components/_home/about';
 import Banner from '../components/banner';
+import FeaturedTours from '../components/_home/featured-tours';
 import Layout from '../components/layout';
 import Service from '../components/_home/service';
 import StyledHero from '../components/styled-hero';
@@ -43,6 +44,7 @@ const Index = ({ data }) => (
     </StyledHero>
     <About />
     <Service />
+    <FeaturedTours />
   </Layout>
 );
 

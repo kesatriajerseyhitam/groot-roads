@@ -18,6 +18,28 @@ export const query = graphql`
   }
 `;
 
+// export const tours = graphql`
+//   query {
+//     tours: allContentfulTour {
+//       edges {
+//         node {
+//           contentful_id
+//           country
+//           days
+//           images {
+//             fluid {
+//               src
+//             }
+//           }
+//           name
+//           price
+//           slug
+//         }
+//       }
+//     }
+//   }
+// `;
+
 const Tours = ({ data }) => (
   <Layout>
     <StyledHero
