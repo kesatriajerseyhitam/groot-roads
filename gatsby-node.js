@@ -1,7 +1,23 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+  const { data } = await graphql(`
+    query{
+      tours: allContentfulTour {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  data.tours.edges.forEach(({ node: { slug } }) => {
+    createPage({
+      path: `tours/${slug}`,
+      component: path.resolve('./src/templates/tour/index.js'),
+      context: { slug },
+    });
+  });
+};
