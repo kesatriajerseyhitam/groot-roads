@@ -98,7 +98,7 @@ const TourTemplate = ({
           </h4>
           <h4>
             duration:
-            {days}
+            {days} days
           </h4>
           <p className={desc}>
             { description }
@@ -110,6 +110,7 @@ const TourTemplate = ({
                 <Day
                   key={index}
                   day={item.day}
+                  info={item.info}
                 />
               ))
             }

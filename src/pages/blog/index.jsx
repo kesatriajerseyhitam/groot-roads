@@ -4,8 +4,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
+import BlogList from '../../components/_blog/blog-list';
 import Layout from '../../components/layout';
 import StyledHero from '../../components/styled-hero';
+import Title from '../../components/title';
 
 export const query = graphql`
   query {
@@ -24,6 +26,8 @@ const Blog = ({ data }) => (
     <StyledHero
       img={data.blogBcg.childImageSharp.fluid}
     />
+    <Title title="our" subtitle="blogs" />
+    <BlogList />
   </Layout>
 );
 
