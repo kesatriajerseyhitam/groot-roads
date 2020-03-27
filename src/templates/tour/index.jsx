@@ -98,7 +98,9 @@ const TourTemplate = ({
           </h4>
           <h4>
             duration:
-            {days} days
+            {days}
+            {' '}
+            days
           </h4>
           <p className={desc}>
             { description }
