@@ -34,28 +34,71 @@ export const query = graphql`
 }`;
 
 const {
+  active,
   blog,
   center,
+  link,
+  links,
 } = styles;
 
-const BlogList = ({ data: { posts: { edges: data } } }) => (
-  <section className={blog}>
-    <Title title="latest" subtitle="posts" />
-    <div className={center}>
-      {
-          data.map(({ node }) => (
-            <BlogCard
-              blog={node}
-              key={node.id}
-            />
+const BlogList = ({
+  data: {
+    posts: {
+      edges: data,
+    },
+  },
+  pageContext: {
+    currentPage,
+    numPages,
+  },
+}) => {
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+  const previousPage = currentPage - 1 === 1 ? 'blogs/' : `blogs/${currentPage + 1}`;
+  const nextPage = `blogs/${currentPage - 1}`;
+
+  return (
+    <Layout>
+      <section className={blog}>
+        <Title title="latest" subtitle="posts" />
+        <div className={center}>
+          {
+              data.map(({ node }) => (
+                <BlogCard
+                  blog={node}
+                  key={node.id}
+                />
+              ))
+            }
+        </div>
+      </section>
+      <section className={links}>
+        {
+          !isFirst && <AniLink className={link} fade to={previousPage}>Prev</AniLink>
+        }
+        {
+          Array.from({ length: numPages }, (_, i) => (
+            <AniLink
+              className={i + 1 === currentPage ? `${link} ${active}` : `${link}`}
+              fade
+              key={i}
+              to={i === 0 ? '/blogs' : `/blogs/${i + 1}`}
+            >
+              { i + 1 }
+            </AniLink>
           ))
         }
-    </div>
-  </section>
-);
+        {
+          !isLast && <AniLink className={link} fade to={nextPage}>Next</AniLink>
+        }
+      </section>
+    </Layout>
+  );
+};
 
 BlogList.propTypes = {
   data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
 };
 
 export default BlogList;
