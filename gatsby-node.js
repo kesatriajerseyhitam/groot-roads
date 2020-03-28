@@ -35,4 +35,21 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       context: { slug },
     });
   });
+
+  const posts = data.posts.edges;
+  const postPerPage = 5;
+  const numPages = Math.ceil(posts.lenght / postPerPage);
+
+  Array.from({ length: numPages }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? 'blogs' : `blogs/${index + 1}`,
+      component: path.resolve('./src/templates/blog-list/index.jsx'),
+      context: {
+        currentPage: index + 1,
+        limit: postPerPage,
+        numPages,
+        skip: index * postPerPage,
+      },
+    });
+  });
 };
