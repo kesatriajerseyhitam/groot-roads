@@ -7,6 +7,9 @@ module.exports = {
     title: 'Longroads',
     description: 'Explore awesome Garut tours & Travel.',
     author: '@praulyatama',
+    twitterUsername: '@prauliyatama',
+    image: '/defaultBcg.jpg',
+    siteUrl: 'https://groads.netlify.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -9,6 +9,7 @@ import Banner from '../components/banner';
 import FeaturedTours from '../components/_home/featured-tours';
 import Layout from '../components/layout';
 import Service from '../components/_home/service';
+import SEO from '../components/seo';
 import StyledHero from '../components/styled-hero';
 
 export const query = graphql`
@@ -25,6 +26,7 @@ export const query = graphql`
 
 const Index = ({ data }) => (
   <Layout>
+    <SEO title="Home" description="This is description" />
     <StyledHero
       home="true"
       img={data.defaultBcg.childImageSharp.fluid}
