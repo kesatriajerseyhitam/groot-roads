@@ -26,7 +26,7 @@ export const query = graphql`
 
 const Index = ({ data }) => (
   <Layout>
-    <SEO title="Home" description="This is description" />
+    <SEO title="Home"/>
     <StyledHero
       home="true"
       img={data.defaultBcg.childImageSharp.fluid}
